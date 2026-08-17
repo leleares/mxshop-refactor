@@ -132,3 +132,9 @@ func DTOToResponse(userDTO *service.UserDTO) *v1.UserInfoResponse {
 	}
 	return &userInfoRsp
 }
+
+func NewUserController(userService service.UserServiceInterface) v1.UserServer {
+	return &userServer{
+		userService: userService,
+	}
+}

@@ -1,8 +1,6 @@
 package srv
 
 import (
-	"github.com/google/wire"
-	"github.com/hashicorp/consul/api"
 	"mxshop/app/pkg/options"
 	"mxshop/app/user/srv/config"
 	gapp "mxshop/gmicro/app"
@@ -10,11 +8,11 @@ import (
 	"mxshop/pkg/app"
 	"mxshop/pkg/log"
 
+	"github.com/hashicorp/consul/api"
+
 	"mxshop/gmicro/registry"
 	"mxshop/gmicro/registry/consul"
 )
-
-var ProviderSet = wire.NewSet(NewUserApp, NewRegistrar, NewUserRPCServer, NewNacosDataSource)
 
 func NewApp(basename string) *app.App {
 	cfg := config.New()
@@ -52,9 +50,29 @@ func NewUserApp(logOpts *log.Options, register registry.Registrar,
 	), nil
 }
 
+// initApp 手动创建依赖注入（不使用 Wire）
+func initApp(cfg *config.Config) (*gapp.App, error) {
+	// 1. 创建 RPC 服务器（内部会创建 Data、Service、Controller 层）
+	rpcServer, err := NewUserRPCServer(cfg)
+	if err != nil {
+		return nil, err
+	}
+
+	// 2. 创建服务注册器
+	registrar := NewRegistrar(cfg.Registry)
+
+	// 3. 创建应用
+	userApp, err := NewUserApp(cfg.Log, registrar, cfg.Server, rpcServer)
+	if err != nil {
+		return nil, err
+	}
+
+	return userApp, nil
+}
+
 func run(cfg *config.Config) app.RunFunc {
 	return func(baseName string) error {
-		userApp, err := initApp(cfg.Nacos, cfg.Log, cfg.Server, cfg.Registry, cfg.Telemetry, cfg.MySQLOptions)
+		userApp, err := initApp(cfg)
 		if err != nil {
 			return err
 		}

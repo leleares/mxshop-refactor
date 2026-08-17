@@ -43403,3 +43403,474 @@
 2022-12-19 17:13:43.171	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:260aecd5-77e7-11ed-8308-0a002700000a". Ensure that the check ID is passed, not the check name.)
 2022-12-19 17:13:53.170	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:260aecd5-77e7-11ed-8308-0a002700000a". Ensure that the check ID is passed, not the check name.)
 2022-12-19 17:14:03.169	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:260aecd5-77e7-11ed-8308-0a002700000a". Ensure that the check ID is passed, not the check name.)
+2026-08-16 16:55:04.294	[34mINFO[0m	app/app.go:116	start rest server
+2026-08-16 16:55:04.295	[34mINFO[0m	rpcserver/server.go:167	[grpc] server listening on: [::]:8025
+2026-08-17 14:26:43.083	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 14:44:13.571	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 14:47:56.508	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 14:48:06.502	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 15:03:49.313	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 15:08:08.991	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 15:08:18.979	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 15:24:12.811	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 15:28:03.154	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 15:45:25.932	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 15:49:45.573	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 15:49:55.562	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 15:50:05.571	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 15:54:55.401	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 15:55:05.382	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 15:55:15.378	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 15:55:25.377	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 15:55:35.377	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 16:02:01.554	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 16:02:11.524	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 16:09:09.597	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 16:09:19.606	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 16:26:06.256	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 16:26:16.255	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 16:26:26.240	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 16:26:36.232	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 16:30:43.975	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 16:30:53.972	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 16:31:03.970	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 16:51:33.844	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 16:51:43.819	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 16:51:53.815	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 17:10:07.144	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 17:10:17.125	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 17:10:27.118	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 17:29:52.217	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 17:30:02.186	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 17:30:12.189	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 17:30:22.192	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 17:48:01.324	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 18:11:04.697	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 18:11:14.628	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 18:11:24.580	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 18:14:01.364	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 18:14:11.342	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 18:19:11.233	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 18:19:21.030	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 18:19:31.029	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 18:37:22.087	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 18:42:18.820	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 18:42:28.820	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 18:42:38.801	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 18:42:48.803	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 19:00:52.162	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 19:10:01.633	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 19:10:11.613	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 19:10:21.649	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 19:10:31.612	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 19:10:41.612	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 19:12:14.614	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 19:12:24.602	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 19:28:42.460	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 19:28:52.436	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:00:40.910	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:02:41.637	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:02:51.628	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:03:01.627	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:03:11.637	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:03:21.627	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:08:11.091	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:08:21.056	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:08:31.055	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:08:41.056	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:09:50.928	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:10:00.988	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:10:10.926	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:10:20.933	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:10:30.932	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:13:11.293	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:13:21.245	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:13:31.244	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:17:58.400	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:33:38.442	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:36:05.908	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:36:15.900	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:36:49.026	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:40:10.635	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:40:20.560	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:41:54.491	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:42:04.475	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:42:14.474	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:42:24.481	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:42:34.479	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:44:31.700	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:44:41.671	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:44:51.673	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:45:01.671	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:49:14.215	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:49:24.183	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:49:34.188	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:49:44.187	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 20:49:54.177	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:08:19.874	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:08:29.833	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:08:39.832	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:08:49.827	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:08:59.829	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:09:53.415	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:10:03.418	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:10:13.418	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:14:12.244	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:14:22.220	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:14:32.229	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:14:42.220	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:14:52.217	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:16:31.730	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:48:29.877	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:50:00.538	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:50:10.533	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:50:20.532	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:53:03.691	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:53:13.677	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:56:16.034	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:56:25.967	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:56:35.971	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:56:45.972	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:57:44.728	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:57:54.729	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:58:04.752	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:58:14.727	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:58:24.730	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:59:04.582	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:59:14.576	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:59:24.575	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:59:34.575	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 21:59:44.589	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:01:35.877	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:01:45.857	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:01:55.854	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:15:09.725	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:15:19.614	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:15:29.573	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:15:39.578	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:15:49.574	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:32:52.360	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:42:13.187	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:42:23.842	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:42:33.476	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:42:43.462	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:42:53.478	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:43:03.690	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:43:13.476	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:43:23.514	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:43:33.479	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:43:43.474	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:43:53.478	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:44:03.656	[31mERROR[0m	consul/client.go:165	[Consul]update ttl heartbeat to consul failed!err:=Unexpected response code: 404 (Unknown check ID "service:2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the check ID is passed, not the check name.)
+2026-08-17 22:44:04.440	[34mINFO[0m	app/app.go:162	start deregister service
+2026-08-17 22:44:04.515	[31mERROR[0m	app/app.go:167	deregister service error: Unexpected response code: 404 (Unknown service ID "2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the service ID is passed, not the service name.)
+2026-08-17 22:44:04.524	[34mINFO[0m	rpcserver/server.go:176	[grpc] server stopped
+2026-08-17 22:44:04.525	[31mERROR[0m	srv/app.go:82	run user app error: Unexpected response code: 404 (Unknown service ID "2c2e06d6-9950-11f1-acf7-56b938819b89". Ensure that the service ID is passed, not the service name.)
+2026-08-17 22:44:10.999	[34mINFO[0m	app/app.go:116	start rest server
+2026-08-17 22:44:11.001	[34mINFO[0m	rpcserver/server.go:167	[grpc] server listening on: [::]:8025
+2026-08-17 23:15:58.528	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.634	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.639	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.641	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.646	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.649	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.652	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.656	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.659	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.662	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.666	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.670	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.673	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.677	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.680	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.683	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.687	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.690	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.693	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.696	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.699	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.702	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.705	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.707	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.711	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.714	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.716	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.719	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.722	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.725	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.727	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.730	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.733	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.735	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.738	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.741	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.743	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.746	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.749	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.753	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.757	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.760	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.765	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.767	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.771	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.778	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.781	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.784	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.788	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.791	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.794	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.797	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.800	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.803	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.806	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.810	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.815	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.819	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.822	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.826	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.830	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.833	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.837	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.841	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.845	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.848	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.852	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.855	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.858	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.862	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.865	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.868	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.872	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.874	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.878	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.881	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.884	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.887	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.891	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.895	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.898	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.901	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.906	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.909	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.912	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.915	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.917	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.921	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.924	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.927	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.930	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.933	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.937	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.940	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.943	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.946	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.949	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.952	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.955	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:58.958	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.365	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.530	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.535	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.539	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.542	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.546	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.550	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.553	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.557	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.560	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.564	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.567	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.572	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.576	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.579	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.583	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.590	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.595	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.604	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.608	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.612	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.616	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.619	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.622	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.625	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.628	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.632	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.636	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.639	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.642	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.645	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.648	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.651	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.654	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.657	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.661	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.664	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.666	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.670	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.673	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.676	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.679	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.682	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.685	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.688	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.691	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.694	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.697	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.701	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.704	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.707	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.711	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.713	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.716	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.719	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.722	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.725	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.728	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.731	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.734	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.737	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.740	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.743	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.746	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.750	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.752	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.756	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.759	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.762	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.765	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.768	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.771	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.774	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.777	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.781	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.785	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.794	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.803	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.808	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.846	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.852	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.855	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.858	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.862	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.865	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.869	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.873	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.877	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.889	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.893	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.898	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.902	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.905	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.909	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.912	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.916	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.919	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.923	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.927	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.930	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:15:59.933	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.245	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.530	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.533	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.536	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.539	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.542	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.545	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.548	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.551	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.550	[31mERROR[0m	trace/agent.go:75	[otel] error: Post "http://127.0.0.1:14268/api/traces": dial tcp 127.0.0.1:14268: connect: connection refused
+2026-08-17 23:16:00.560	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.563	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.566	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.569	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.572	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.575	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.578	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.581	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.584	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.587	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.590	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.593	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.596	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.599	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.602	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.605	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.608	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.611	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.614	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.617	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.620	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.624	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.627	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.630	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.633	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.636	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.640	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.642	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.646	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.648	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.651	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.654	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.658	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.661	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.664	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.667	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.670	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.673	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.677	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.679	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.682	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.685	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.688	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.692	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.695	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.698	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.701	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.704	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.707	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.710	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.713	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.715	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.718	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.721	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.725	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.728	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.731	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.733	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.736	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.740	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.743	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.746	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.749	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.752	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.755	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.758	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.761	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.764	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.770	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.778	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.795	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.818	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.853	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.871	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.890	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.894	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.897	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.901	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.916	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.919	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.923	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.926	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.930	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.933	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.936	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.939	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.943	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.946	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.949	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.952	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.955	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:00.958	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:05.550	[31mERROR[0m	trace/agent.go:75	[otel] error: Post "http://127.0.0.1:14268/api/traces": dial tcp 127.0.0.1:14268: connect: connection refused
+2026-08-17 23:16:39.638	[34mINFO[0m	controller/user.go:79	GetUserList is called
+2026-08-17 23:16:40.558	[31mERROR[0m	trace/agent.go:75	[otel] error: Post "http://127.0.0.1:14268/api/traces": dial tcp 127.0.0.1:14268: connect: connection refused

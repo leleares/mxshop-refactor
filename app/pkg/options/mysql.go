@@ -1,8 +1,9 @@
 package options
 
 import (
-	"github.com/spf13/pflag"
 	"time"
+
+	"github.com/spf13/pflag"
 )
 
 type MySQLOptions struct {
@@ -11,10 +12,10 @@ type MySQLOptions struct {
 	Username              string        `mapstructure:"username" json:"username,omitempty"`
 	Password              string        `mapstructure:"password" json:"password,omitempty"`
 	Database              string        `mapstructure:"database" json:"database"`
-	MaxIdleConnections    int           `mapstructure:"max-idle-connections" json:"max-idle-connections,omitempty"`
-	MaxOpenConnections    int           `mapstructure:"max-open-connections" json:"max-open-connections,omitempty"`
-	MaxConnectionLifetime time.Duration `mapstructure:"ax-connection-life-time" json:"max-connection-life-time,omitempty"`
-	LogLevel              int           `mapstructure:"log-level" json:"log-level"`
+	MaxIdleConnections    int           `mapstructure:"max-idle-connections" json:"max-idle-connections,omitempty"`        // 最大空闲连接数
+	MaxOpenConnections    int           `mapstructure:"max-open-connections" json:"max-open-connections,omitempty"`        // 最大连接数
+	MaxConnectionLifetime time.Duration `mapstructure:"ax-connection-life-time" json:"max-connection-life-time,omitempty"` // 最大连接存活时间
+	LogLevel              int           `mapstructure:"log-level" json:"log-level"`                                        // 日志： 0: Silent, 1: Error, 2: Warn, 3: Info
 }
 
 // NewMySQLOptions create a `zero` value instance.
