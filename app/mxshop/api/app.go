@@ -3,12 +3,13 @@ package admin
 import (
 	"context"
 
-	"github.com/hashicorp/consul/api"
 	"mxshop/app/mxshop/api/config"
 	"mxshop/app/pkg/options"
 	gapp "mxshop/gmicro/app"
 	"mxshop/pkg/app"
 	"mxshop/pkg/log"
+
+	"github.com/hashicorp/consul/api"
 
 	"mxshop/gmicro/registry"
 	"mxshop/gmicro/registry/consul"
@@ -65,14 +66,14 @@ func NewAPIApp(cfg *config.Config) (*gapp.App, error) {
 	go storage.ConnectToRedis(context.Background(), redisConfig)
 
 	//生成http服务
-	rpcServer, err := NewAPIHTTPServer(cfg)
+	restServer, err := NewAPIHTTPServer(cfg)
 	if err != nil {
 		return nil, err
 	}
 
 	return gapp.New(
 		gapp.WithName(cfg.Server.Name),
-		gapp.WithRestServer(rpcServer),
+		gapp.WithRestServer(restServer),
 		gapp.WithRegistrar(register),
 	), nil
 }
