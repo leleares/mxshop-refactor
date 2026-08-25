@@ -26,4 +26,7 @@ func GetDataFactory(registry options.RegistryOptions) (data.UserData, error) {
 	d := NewDiscovery(&registry)
 	// 创建userClient
 	userClient := NewUserServiceClient(d)
+
+	users := NewUsers(userClient)
+	return users, nil
 }
