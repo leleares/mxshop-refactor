@@ -8,3 +8,7 @@ configs/shop/api-local.yaml
 # 环境变量文件
 .env
 .env.local
+
+# 日志文件
+logs/
+*.log
