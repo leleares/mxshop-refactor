@@ -22,6 +22,10 @@ func initRouter(g *restserver.Server, cfg *config.Config) {
 	uGroup := v1Group.Group("/user")
 	{
 		uGroup.POST("/login", uController.Login)
+		uGroup.POST("/register", uController.Register)
+		jwtAuth := newJWTAuth(cfg.Jwt)
+		uGroup.GET("/detail", jwtAuth.AuthFunc(), uController.GetUserDetail)
+		uGroup.PATCH("/update", jwtAuth.AuthFunc(), uController.UpdateUser)
 	}
 	baseGroup := v1Group.Group("/base")
 	{

@@ -43874,3 +43874,9 @@
 2026-08-17 23:16:05.550	[31mERROR[0m	trace/agent.go:75	[otel] error: Post "http://127.0.0.1:14268/api/traces": dial tcp 127.0.0.1:14268: connect: connection refused
 2026-08-17 23:16:39.638	[34mINFO[0m	controller/user.go:79	GetUserList is called
 2026-08-17 23:16:40.558	[31mERROR[0m	trace/agent.go:75	[otel] error: Post "http://127.0.0.1:14268/api/traces": dial tcp 127.0.0.1:14268: connect: connection refused
+2026-08-25 21:02:46.848	[34mINFO[0m	app/app.go:116	start rest server
+2026-08-25 21:02:46.849	[34mINFO[0m	rpcserver/server.go:167	[grpc] server listening on: [::]:8025
+2026-08-25 21:09:44.158	[34mINFO[0m	controller/user.go:67	get user by mobile function called.
+2026-08-25 21:09:46.871	[31mERROR[0m	trace/agent.go:75	[otel] error: Post "http://127.0.0.1:14268/api/traces": dial tcp 127.0.0.1:14268: connect: connection refused
+2026-08-25 21:30:38.236	[34mINFO[0m	controller/user.go:55	get user by id function called.
+2026-08-25 21:30:42.238	[31mERROR[0m	trace/agent.go:75	[otel] error: Post "http://127.0.0.1:14268/api/traces": dial tcp 127.0.0.1:14268: connect: connection refused
