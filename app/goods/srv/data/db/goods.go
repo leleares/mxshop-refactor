@@ -28,6 +28,12 @@ func newGoods(factory *mysqlFactory) *goods {
 	return goods
 }
 
+// func NewGoods(db *gorm.DB) *goods {
+// 	return &goods{
+// 		db: db,
+// 	}
+// }
+
 func (g *goods) CreateInTxn(ctx context.Context, txn *gorm.DB, goods *do.GoodsDO) error {
 	tx := txn.Create(goods)
 	if tx.Error != nil {

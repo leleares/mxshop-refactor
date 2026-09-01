@@ -14,6 +14,13 @@ type categoryBrands struct {
 	db *gorm.DB
 }
 
+func newCategoryBrand(mf *mysqlFactory) *categoryBrands {
+	cb := &categoryBrands{
+		db: mf.db,
+	}
+	return cb
+}
+
 func (cb *categoryBrands) List(ctx context.Context, opts metav1.ListMeta, orderby []string) (*do.GoodsCategoryBrandList, error) {
 	//TODO implement me
 	panic("implement me")

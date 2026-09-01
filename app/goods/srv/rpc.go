@@ -4,7 +4,10 @@ import (
 	"fmt"
 	gpb "mxshop/api/goods/v1"
 	"mxshop/app/goods/srv/config"
-	v12 "mxshop/app/goods/srv/controller/v1"
+	v12 "mxshop/app/goods/srv/controller"
+	db "mxshop/app/goods/srv/data/db"
+	es "mxshop/app/goods/srv/data_search/es"
+	goodService "mxshop/app/goods/srv/service"
 	"mxshop/gmicro/core/trace"
 	"mxshop/gmicro/server/rpcserver"
 )
@@ -18,7 +21,12 @@ func NewGoodsRPCServer(cfg *config.Config) (*rpcserver.Server, error) {
 		cfg.Telemetry.Batcher,
 	})
 
-	goodsServer := v12.NewGoodsServer()
+	// 初始化es工厂store
+	esFactory, _ := es.GetSearchFactoryOr(cfg.EsOptions)
+	// 初始化db工厂store
+	dbFactory, _ := db.GetDBFactoryOr(cfg.MySQLOptions)
+	goodSrv := goodService.NewService(dbFactory, esFactory)
+	goodsServer := v12.NewGoodsServer(goodSrv)
 	rpcAddr := fmt.Sprintf("%s:%d", cfg.Server.Host, cfg.Server.Port)
 	grpcServer := rpcserver.NewServer(rpcserver.WithAddress(rpcAddr))
 

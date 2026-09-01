@@ -54,13 +54,14 @@ require (
 	golang.org/x/tools v0.47.0
 	google.golang.org/genproto v0.0.0-20220602131408-e326c6e8e9c8
 	google.golang.org/grpc v1.80.0
-	google.golang.org/protobuf v1.36.11
-	gorm.io/driver/mysql v1.4.3
-	gorm.io/gorm v1.23.8
+	google.golang.org/protobuf v1.36.12
+	gorm.io/driver/mysql v1.6.0
+	gorm.io/gorm v1.30.0
 	k8s.io/klog/v2 v2.130.1
 )
 
 require (
+	filippo.io/edwards25519 v1.2.0 // indirect
 	github.com/Azure/go-ansiterm v0.0.0-20210617225240-d185dfc1b5a1 // indirect
 	github.com/aliyun/alibaba-cloud-sdk-go v1.61.1836 // indirect
 	github.com/armon/go-metrics v0.4.1 // indirect

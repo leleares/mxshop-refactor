@@ -8,13 +8,12 @@ import (
 	errors2 "mxshop/pkg/errors"
 	"sync"
 
-	"gorm.io/gorm"
-
 	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
 var (
-	dbFactory *gorm.DB
+	dbFactory v1.DataFactory
 	once      sync.Once
 )
 
@@ -42,15 +41,14 @@ func (mf *mysqlFactory) Banners() v1.BannerStore {
 	return newBanner(mf)
 }
 
-func (m *mysqlFactory) CategoryBrands() v1.GoodsCategoryBrandStore {
-	//TODO implement me
-	panic("implement me")
+func (mf *mysqlFactory) CategoryBrands() v1.GoodsCategoryBrandStore {
+	return newCategoryBrand(mf)
 }
 
 // 这个方法会返回gorm连接
 // 这里一定是单例模式
 // 这个方法应该返回的是全局的一个变量，如果一开始的时候没有初始化好，那么就初始化一次，后续呢直接拿到这个变量
-func GetDBFactoryOr(mysqlOpts *options.MySQLOptions) (*gorm.DB, error) {
+func GetDBFactoryOr(mysqlOpts *options.MySQLOptions) (v1.DataFactory, error) {
 	if mysqlOpts == nil && dbFactory == nil {
 		return nil, fmt.Errorf("failed to get mysql store fatory")
 	}
@@ -63,12 +61,15 @@ func GetDBFactoryOr(mysqlOpts *options.MySQLOptions) (*gorm.DB, error) {
 			mysqlOpts.Host,
 			mysqlOpts.Port,
 			mysqlOpts.Database)
-		dbFactory, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
+		db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 		if err != nil {
 			return
 		}
 
-		sqlDB, _ := dbFactory.DB()
+		sqlDB, _ := db.DB()
+		dbFactory = &mysqlFactory{
+			db: db,
+		}
 
 		sqlDB.SetMaxOpenConns(mysqlOpts.MaxOpenConnections)
 		sqlDB.SetMaxIdleConns(mysqlOpts.MaxIdleConnections)

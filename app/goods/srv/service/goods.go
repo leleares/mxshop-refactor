@@ -15,6 +15,18 @@ import (
 	"github.com/zeromicro/go-zero/core/mr"
 )
 
+type goodsService struct {
+	data          v1.DataFactory
+	searchFactory v12.SearchFactory
+}
+
+func newGoods(s *service) *goodsService {
+	return &goodsService{
+		data:          s.data,
+		searchFactory: s.searchData,
+	}
+}
+
 type GoodsSrv interface {
 	// 商品列表
 	List(ctx context.Context, opts metav1.ListMeta, req *proto.GoodsFilterRequest, orderby []string) (*dto.GoodsDTOList, error)
@@ -33,20 +45,6 @@ type GoodsSrv interface {
 
 	//批量查询商品
 	BatchGet(ctx context.Context, ids []uint64) ([]*dto.GoodsDTO, error)
-}
-
-type goodsService struct {
-	//工厂
-	data v1.GoodsStore
-
-	searchData v12.GoodsStore
-}
-
-func newGoods(data v1.GoodsStore, searchData v12.GoodsStore) *goodsService {
-	return &goodsService{
-		data:       data,
-		searchData: searchData,
-	}
 }
 
 // 遍历树结构
@@ -68,7 +66,7 @@ func (gs *goodsService) List(ctx context.Context, opts metav1.ListMeta, req *pro
 		GoodsFilterRequest: req,
 	}
 	if req.TopCategory > 0 {
-		category, err := gs.data.Get(ctx, uint64(req.TopCategory))
+		category, err := gs.data.Categorys().Get(ctx, uint64(req.TopCategory))
 		if err != nil {
 			log.Errorf("categoryData.Get err: %v", err)
 			return nil, err
@@ -81,7 +79,7 @@ func (gs *goodsService) List(ctx context.Context, opts metav1.ListMeta, req *pro
 		searchReq.CategoryIDs = ids
 	}
 
-	goodsList, err := gs.searchData.Goods().Search(ctx, &searchReq)
+	goodsList, err := gs.searchFactory.Goods().Search(ctx, &searchReq)
 	if err != nil {
 		log.Errorf("serachData.Search err: %v", err)
 		return nil, err
@@ -125,12 +123,12 @@ func (gs *goodsService) Create(ctx context.Context, goods *dto.GoodsDTO) error {
 	/*
 		数据先写mysql，然后写es
 	*/
-	_, err := gs.data.Brands().Get(ctx, uint64(goods.BrandsID))
+	_, err := gs.data.Goods().Get(ctx, uint64(goods.BrandsID))
 	if err != nil {
 		return err
 	}
 
-	_, err = gs.data.Categorys().Get(ctx, uint64(goods.CategoryID))
+	_, err = gs.data.Goods().Get(ctx, uint64(goods.CategoryID))
 	if err != nil {
 		return err
 	}
@@ -170,7 +168,7 @@ func (gs *goodsService) Create(ctx context.Context, goods *dto.GoodsDTO) error {
 		ShopPrice:   goods.ShopPrice,
 	}
 
-	err = gs.searchData.Goods().Create(ctx, &searchDO) //这个接口如果超时了
+	err = gs.searchFactory.Goods().Create(ctx, &searchDO) //这个接口如果超时了
 	if err != nil {
 		txn.Rollback()
 		return err
