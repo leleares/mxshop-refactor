@@ -22,13 +22,12 @@ func NewInventoryRPCServer(cfg *config.Config) (*rpcserver.Server, error) {
 		cfg.Telemetry.Batcher,
 	})
 
-	//有点繁琐，wire， ioc-golang
-	dataFactory, err := db2.GetDBFactoryOr(cfg.MySQLOptions)
+	dataFactory, err := db2.GetFactoryDBOr(cfg.MySQLOptions)
 	if err != nil {
 		log.Fatal(err.Error())
 	}
-	invService := v13.NewService(dataFactory, cfg.RedisOptions)
-	invServer := v12.NewInventoryServer(invService)
+	serviceFactory := v13.NewService(dataFactory, cfg.RedisOptions)
+	invServer := v12.NewInventoryServer(serviceFactory)
 	rpcAddr := fmt.Sprintf("%s:%d", cfg.Server.Host, cfg.Server.Port)
 	grpcServer := rpcserver.NewServer(rpcserver.WithAddress(rpcAddr))
 	gpb.RegisterInventoryServer(grpcServer.Server, invServer)
