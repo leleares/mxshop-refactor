@@ -34,23 +34,23 @@ type UserSrv interface {
 
 type userService struct {
 	//ud data.UserData
-	data data.UserData
+	data data.DataFactory
 
 	jwtOpts *options.JwtOptions
 }
 
-func NewUserService(data data.UserData, jwtOpts *options.JwtOptions) UserSrv {
+func NewUserService(data data.DataFactory, jwtOpts *options.JwtOptions) UserSrv {
 	return &userService{data: data, jwtOpts: jwtOpts}
 }
 
 func (us *userService) MobileLogin(ctx context.Context, mobile, password string) (*UserDTO, error) {
-	user, err := us.data.GetByMobile(ctx, mobile)
+	user, err := us.data.Users().GetByMobile(ctx, mobile)
 	if err != nil {
 		return nil, err
 	}
 
 	//检查密码是否正确
-	err = us.data.CheckPassWord(ctx, password, user.PassWord)
+	err = us.data.Users().CheckPassWord(ctx, password, user.PassWord)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +95,7 @@ func (us *userService) Register(ctx context.Context, mobile, password, codes str
 		Mobile:   mobile,
 		PassWord: password,
 	}
-	err = us.data.Create(ctx, user)
+	err = us.data.Users().Create(ctx, user)
 	if err != nil {
 		log.Errorf("user register failed: %v", err)
 		return nil, err
@@ -131,7 +131,7 @@ func (u *userService) Update(ctx context.Context, userDTO *UserDTO) error {
 }
 
 func (us *userService) Get(ctx context.Context, userID uint64) (*UserDTO, error) {
-	userDO, err := us.data.Get(ctx, userID)
+	userDO, err := us.data.Users().Get(ctx, userID)
 	if err != nil {
 		return nil, err
 	}

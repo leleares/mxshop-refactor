@@ -62,44 +62,15 @@ func retrieveIDs(category *do.CategoryDO) []uint64 {
 }
 
 func (gs *goodsService) List(ctx context.Context, opts metav1.ListMeta, req *proto.GoodsFilterRequest, orderby []string) (*dto.GoodsDTOList, error) {
-	searchReq := v12.GoodsFilterRequest{
-		GoodsFilterRequest: req,
-	}
-	if req.TopCategory > 0 {
-		category, err := gs.data.Categorys().Get(ctx, uint64(req.TopCategory))
-		if err != nil {
-			log.Errorf("categoryData.Get err: %v", err)
-			return nil, err
-		}
-
-		var ids []interface{}
-		for _, value := range retrieveIDs(category) {
-			ids = append(ids, value)
-		}
-		searchReq.CategoryIDs = ids
-	}
-
-	goodsList, err := gs.searchFactory.Goods().Search(ctx, &searchReq)
+	// 暂时跳过 ES 搜索，直接从 MySQL 分页查询
+	goods, err := gs.data.Goods().List(ctx, orderby, opts)
 	if err != nil {
-		log.Errorf("serachData.Search err: %v", err)
+		log.Errorf("data.List err: %v", err)
 		return nil, err
 	}
 
-	log.Debugf("Search es data: %v", goodsList)
-
-	goodsIDs := []uint64{}
-	for _, value := range goodsList.Items {
-		goodsIDs = append(goodsIDs, uint64(value.ID))
-	}
-
-	//通过id批量查询mysql数据
-	goods, err := gs.data.Goods().ListByIDs(ctx, goodsIDs, orderby)
-	if err != nil {
-		log.Errorf("data.ListByIDs err: %v", err)
-		return nil, err
-	}
 	var ret dto.GoodsDTOList
-	ret.TotalCount = int(goodsList.TotalCount)
+	ret.TotalCount = int(goods.TotalCount)
 	for _, value := range goods.Items {
 		ret.Items = append(ret.Items, &dto.GoodsDTO{
 			GoodsDO: *value,

@@ -18,7 +18,7 @@ type users struct {
 	uc upbv1.UserClient
 }
 
-func NewUsers(uc upbv1.UserClient) *users {
+func newUsers(uc upbv1.UserClient) *users {
 	return &users{
 		uc,
 	}

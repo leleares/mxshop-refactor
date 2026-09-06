@@ -25,7 +25,7 @@ func (us *userServer) UpdateUser(ctx *gin.Context) {
 
 	userID, _ := ctx.Get(middlewares.KeyUserID)
 	userIDInt := uint64(userID.(float64))
-	userDTO, err := us.sf.Get(ctx, userIDInt)
+	userDTO, err := us.sf.Users().Get(ctx, userIDInt)
 	if err != nil {
 		core.WriteResponse(ctx, err, nil)
 		return
@@ -38,7 +38,7 @@ func (us *userServer) UpdateUser(ctx *gin.Context) {
 	userDTO.NickName = updateForm.Name
 	userDTO.Birthday = time.Now()
 	userDTO.Gender = updateForm.Gender
-	err = us.sf.Update(ctx, userDTO)
+	err = us.sf.Users().Update(ctx, userDTO)
 	if err != nil {
 		core.WriteResponse(ctx, err, nil)
 		return

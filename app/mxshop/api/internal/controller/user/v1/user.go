@@ -1,7 +1,7 @@
 package user
 
 import (
-	userService "mxshop/app/mxshop/api/internal/service/user/v1"
+	service "mxshop/app/mxshop/api/internal/service"
 
 	ut "github.com/go-playground/universal-translator"
 )
@@ -9,9 +9,9 @@ import (
 type userServer struct {
 	trans ut.Translator
 
-	sf userService.UserSrv
+	sf service.ServiceFactory
 }
 
-func NewUserController(trans ut.Translator, sf userService.UserSrv) *userServer {
+func NewUserController(trans ut.Translator, sf service.ServiceFactory) *userServer {
 	return &userServer{trans, sf}
 }

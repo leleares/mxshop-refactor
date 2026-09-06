@@ -2,14 +2,18 @@ package db
 
 import (
 	"fmt"
+	"log"
 	v1 "mxshop/app/goods/srv/data"
 	"mxshop/app/pkg/code"
 	"mxshop/app/pkg/options"
 	errors2 "mxshop/pkg/errors"
+	"os"
 	"sync"
+	"time"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
 
 var (
@@ -61,7 +65,20 @@ func GetDBFactoryOr(mysqlOpts *options.MySQLOptions) (v1.DataFactory, error) {
 			mysqlOpts.Host,
 			mysqlOpts.Port,
 			mysqlOpts.Database)
-		db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+
+		// gorm 打印日志，可以自己实现，本质就是一个interface
+		newLogger := logger.New(
+			log.New(os.Stdout, "\r\n", log.LstdFlags), // io writer
+			logger.Config{
+				SlowThreshold:             time.Second, // Slow SQL threshold
+				LogLevel:                  logger.Info, // Log level
+				IgnoreRecordNotFoundError: true,        // Ignore ErrRecordNotFound error for logger
+				Colorful:                  false,       // Disable color
+			},
+		)
+		db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
+			Logger: newLogger,
+		})
 		if err != nil {
 			return
 		}
