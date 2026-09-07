@@ -88,13 +88,14 @@ func (is *inventoryService) Sell(ctx context.Context, ordersn string, details []
 		Detail:  detail,
 	}
 
-	for _, goodsInfo := range detail {
-		mutex := rs.NewMutex(inventoryLockPrefix + ordersn)
-		if err := mutex.Lock(); err != nil {
-			log.Errorf("订单%s获取锁失败", ordersn)
-		}
-		defer mutex.Unlock()
+	//锁的 key 是订单号，整个扣减过程只获取/释放一次即可，不需要在循环内重复加锁
+	mutex := rs.NewMutex(inventoryLockPrefix + ordersn)
+	if err := mutex.Lock(); err != nil {
+		log.Errorf("订单%s获取锁失败", ordersn)
+	}
+	defer mutex.Unlock()
 
+	for _, goodsInfo := range detail {
 		inv, err := is.data.Inventorys().Get(ctx, uint64(goodsInfo.Goods))
 		if err != nil {
 			log.Errorf("订单%s获取库存失败", ordersn)
@@ -151,14 +152,16 @@ func (is *inventoryService) Reback(ctx context.Context, ordersn string, details 
 		log.Errorf("订单%s获取锁失败", ordersn)
 		return err
 	}
+	//获取锁成功后立刻 defer 释放，保证所有 return 路径都会释放锁，避免锁泄漏到过期
+	defer func() {
+		if _, err := mutex.Unlock(); err != nil {
+			log.Errorf("订单%s释放锁出现异常", ordersn)
+		}
+	}()
+
 	sellDetail, err := is.data.Inventorys().GetSellDetail(ctx, txn, ordersn)
 	if err != nil {
 		txn.Rollback()
-		_, err := mutex.Unlock()
-		if err != nil {
-			log.Errorf("订单%s释放锁出现异常", ordersn)
-			return err
-		}
 		if errors.IsCode(err, code.ErrInvSellDetailNotFound) {
 			//空回滚
 			log.Errorf("订单%s扣减库存记录不存在, 忽略", ordersn)
