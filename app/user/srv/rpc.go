@@ -11,54 +11,35 @@ import (
 	"github.com/nacos-group/nacos-sdk-go/clients"
 	"github.com/nacos-group/nacos-sdk-go/common/constant"
 
-	"mxshop/app/user/srv/config"
-	"mxshop/app/user/srv/controller"
-	"mxshop/app/user/srv/data"
-	db "mxshop/app/user/srv/data/db"
-	"mxshop/app/user/srv/service"
-
 	"github.com/alibaba/sentinel-golang/pkg/datasource/nacos"
 )
 
-func NewUserRPCServer(cfg *config.Config) (*rpcserver.Server, error) {
+func NewUserRPCServer(telemetry *options.TelemetryOptions, serverOpts *options.ServerOptions, userver upb.UserServer) (*rpcserver.Server, error) {
 	//初始化open-telemetry的exporter
 	trace.InitAgent(trace.Options{
-		cfg.Telemetry.Name,
-		cfg.Telemetry.Endpoint,
-		cfg.Telemetry.Sampler,
-		cfg.Telemetry.Batcher,
+		telemetry.Name,
+		telemetry.Endpoint,
+		telemetry.Sampler,
+		telemetry.Batcher,
 	})
-	// 这里要进行 data、service、controller层的装配
-	// 1. 初始化数据库连接
-	gormDB, err := db.GetDBFactoryOr(cfg.MySQLOptions)
-	if err != nil {
-		return nil, err
-	}
-	userStore := data.NewUserStore(gormDB)
-	// 2. 初始化service层
-	userService := service.NewUserService(userStore)
-	// 3. 初始化controller层
-	userController := controller.NewUserController(userService)
 
-	rpcAddr := fmt.Sprintf("%s:%d", cfg.Server.Host, cfg.Server.Port)
+	rpcAddr := fmt.Sprintf("%s:%d", serverOpts.Host, serverOpts.Port)
 
 	var opts []rpcserver.ServerOption
 	opts = append(opts, rpcserver.WithAddress(rpcAddr))
-	if cfg.Server.EnableLimit {
+	if serverOpts.EnableLimit {
+		// 限流(sentinel + nacos)当前未启用，与改造前保持一致。
 		// opts = append(opts, rpcserver.WithUnaryInterceptor(grpc.NewUnaryServerInterceptor()))
-		// //我去初始化nacos
-		// nds, err := NewNacosDataSource(cfg.NacosOptions)
-		// if err != nil {
+		// if err := dataNacos.Initialize(); err != nil {
 		// 	return nil, err
 		// }
-		// _ = nds
 	}
 	urpcServer := rpcserver.NewServer(opts...)
 
-	upb.RegisterUserServer(urpcServer.Server, userController)
+	upb.RegisterUserServer(urpcServer.Server, userver)
 
 	//r := gin.Default()
-	//upb.RegisterUserServerHTTPServer(userController, r)
+	//upb.RegisterUserServerHTTPServer(userver, r)
 	//r.Run(":8075")
 	return urpcServer, nil
 }

@@ -6,6 +6,7 @@ import (
 
 	metav1 "mxshop/pkg/common/meta/v1"
 
+	"github.com/google/wire"
 	"gorm.io/gorm"
 )
 
@@ -55,3 +56,5 @@ type userStore struct {
 func NewUserStore(db *gorm.DB) UserStore {
 	return &userStore{db: db}
 }
+
+var ProviderSet = wire.NewSet(NewUserStore)

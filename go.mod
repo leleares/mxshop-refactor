@@ -23,6 +23,7 @@ require (
 	github.com/go-redis/redis/extra/redisotel/v9 v9.0.0-rc.1
 	github.com/go-redis/redis/v9 v9.0.0-rc.1
 	github.com/google/uuid v1.3.0
+	github.com/google/wire v0.5.0
 	github.com/gosuri/uitable v0.0.4
 	github.com/h2non/filetype v1.1.3
 	github.com/hashicorp/consul/api v1.12.0

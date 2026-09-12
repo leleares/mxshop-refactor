@@ -4,6 +4,8 @@ import (
 	"context"
 	"mxshop/app/user/srv/data"
 	metav1 "mxshop/pkg/common/meta/v1"
+
+	"github.com/google/wire"
 )
 
 type UserDTO struct {
@@ -97,3 +99,8 @@ func (s *UserService) UpdateUser(ctx context.Context, user *UserDTO) error {
 func (s *UserService) DeleteUser(ctx context.Context, id int32) error {
 	return s.userStore.DeleteUser(ctx, id)
 }
+
+var ProviderSet = wire.NewSet(
+	NewUserService,
+	wire.Bind(new(UserServiceInterface), new(*UserService)),
+)

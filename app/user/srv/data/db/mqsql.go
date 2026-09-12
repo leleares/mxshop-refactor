@@ -7,6 +7,7 @@ import (
 	errors2 "mxshop/pkg/errors"
 	"sync"
 
+	"github.com/google/wire"
 	"gorm.io/gorm"
 
 	"gorm.io/driver/mysql"
@@ -50,3 +51,5 @@ func GetDBFactoryOr(mysqlOpts *options.MySQLOptions) (*gorm.DB, error) {
 	}
 	return dbFactory, nil
 }
+
+var ProviderSet = wire.NewSet(GetDBFactoryOr)

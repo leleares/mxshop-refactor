@@ -14,6 +14,7 @@ import (
 	data "mxshop/app/user/srv/data"
 
 	"github.com/anaskhan96/go-password-encoder"
+	"github.com/google/wire"
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 
@@ -138,3 +139,5 @@ func NewUserController(userService service.UserServiceInterface) v1.UserServer {
 		userService: userService,
 	}
 }
+
+var ProviderSet = wire.NewSet(NewUserController)

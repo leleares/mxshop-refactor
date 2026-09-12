@@ -8,11 +8,14 @@ import (
 	"mxshop/pkg/app"
 	"mxshop/pkg/log"
 
+	"github.com/google/wire"
 	"github.com/hashicorp/consul/api"
 
 	"mxshop/gmicro/registry"
 	"mxshop/gmicro/registry/consul"
 )
+
+var ProviderSet = wire.NewSet(NewUserApp, NewRegistrar, NewUserRPCServer)
 
 func NewApp(basename string) *app.App {
 	cfg := config.New()
@@ -50,29 +53,10 @@ func NewUserApp(logOpts *log.Options, register registry.Registrar,
 	), nil
 }
 
-// initApp 手动创建依赖注入（不使用 Wire）
-func initApp(cfg *config.Config) (*gapp.App, error) {
-	// 1. 创建 RPC 服务器（内部会创建 Data、Service、Controller 层）
-	rpcServer, err := NewUserRPCServer(cfg)
-	if err != nil {
-		return nil, err
-	}
-
-	// 2. 创建服务注册器
-	registrar := NewRegistrar(cfg.Registry)
-
-	// 3. 创建应用
-	userApp, err := NewUserApp(cfg.Log, registrar, cfg.Server, rpcServer)
-	if err != nil {
-		return nil, err
-	}
-
-	return userApp, nil
-}
-
+// run 通过 wire 生成的 initApp 完成依赖注入并启动服务
 func run(cfg *config.Config) app.RunFunc {
 	return func(baseName string) error {
-		userApp, err := initApp(cfg)
+		userApp, err := initApp(cfg.Log, cfg.Server, cfg.Registry, cfg.Telemetry, cfg.MySQLOptions)
 		if err != nil {
 			return err
 		}
