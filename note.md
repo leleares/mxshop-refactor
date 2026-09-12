@@ -142,3 +142,7 @@ saga 中的子事务屏障：所谓子事务屏障，指的是dtm在实际执行
 
 子事务屏障的解决思路是：在全局完整事务的基础之上，业务方能否在本地来维护一个本地事务，同时业务方通过一张表来进行记录，当dtm调用本身的时候，通过查询表数据可以知道是否发生了以上三种情况从而避免。
 表结构主要字段：gid、brand_id、op：gid 表示全局事务，一个saga操作许多业务的一串操作就是同一个gid，brand_id就是每一个分支，op：action、compensation。
+
+### ioc 框架 wire
+本质是运行脚本完成固化的初始化流程。
+拿三层代码结构来举例子，data层service层和controller层对于这三层来说，data层需要向上暴露NewData方法，service层依赖NewData方法实例化后传入自己的NewService层，controller层依赖NewService方法实例化后传入NewController层，再交给上层，这样的过程将当繁琐wire就是帮助你完成这个事情，你可以将这函数所需的参数全部交给init的函数，然后再将所有的构造函数都交给wire脚本，执行wire命名就拿帮你初始化这些固定的流程。
