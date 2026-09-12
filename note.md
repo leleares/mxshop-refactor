@@ -110,3 +110,35 @@ func (u *UserServerStruct)GetUserById(){
 ### 非线程安全
 slice和map都是线程不安全的
 也就是说当并发向slice中append元素时，可能会导致元素丢失。map当并发向map中写入数据时会导致kv丢失。
+
+### SQL中的 DDL 和 DML
+SQL 分两大类：DDL和DML
+ DDL（定义结构  Data Definition Language）：例如：CREATE TABLE goods (...)、ALTER TABLE goods ADD COLUMN ...、 DROP TABLE goods、 TRUNCATE TABLE goods。说白了就是重构model的
+ DML（操作数据 Data Manipulation Language）：—INSERT / SELECT / UPDATE / DELETE
+
+ DML 的前提是表已经用 DDL 建好了
+
+
+ ### saga 分布式事务
+ 核心思想：分为执行和补偿，拿一个下单操作来举例子，假如要跨服务调用扣减库存、扣减优惠券、扣减余额等服务，那就分别需要实现：扣减库存、归还库存；扣减优惠券、归还优惠券；扣减余额、添加余额，也就是说，每一步执行都有对应的补偿动作，这样一来整个跨微服务的调用过程，但凡有一个环节出现问题都会调用上一步微服务的补偿动作，这种解决分布式事务的方案叫做saga分布式解决方案。请注意saga只是一个理论，DTM是真正落地的开源框架。DTM在这里就是充当调度器的作用，我们可以去关心每个动作的执行和补偿接口，然后都交给DTM管理器去接管。
+
+ dtm 支持http和grpc。
+ 对于http，需要借助dtm服务器的能力（本地可起，也可部署），将相关正向操作和补偿操作交给dtm服务器去完成就行。
+ 小结一句话：HTTP 模式 = 起一个 dtm 服务器 + 业务暴露「正向/补偿」接口 + 发起方用 dtmcli.NewSaga().Add(action, compensate, data).Submit() 提交，dtm 负责顺序执行、失败逆序补偿、断点续跑；业务侧用 barrier 保证幂等/空补偿/悬挂。
+ 基于grpc跟http比无非就是换了一种调用方式，本质原理相同。
+ ```go
+      // 通过saga dtm服务器来处理分布式事务，需要把需要进行操作的action（正向操作）和compensation（补偿操作）交给saga，saga服务会去调用具体的业务接口（调用库存服务、调用购物车服务..）
+      // 开启一个gid
+      saga.Add("inventory/busi.Bus/TransIn",     // 每个Add操作都是一个新的brand_id  
+         "inventory/busi.Bus/TransInRevert", req).
+      Add("cart/busi.Bus/TransIn", //新的brand_id  
+          "cart/busi.Bus/TransInRevert", req)
+ ```
+
+saga 中的子事务屏障：所谓子事务屏障，指的是dtm在实际执行时会遇到很多问题，主要是由于网络是不可靠的：
+1. 幂等：dtm调用业务接口，业务接口resp了OK，但由于网络抖动，resp丢失了，dtm于是进行重试，从而造成多进行扣减库存。
+2. 空补偿：DTM调用库存服务，但在调用的过程当中，由于网络抖动这个请求丢掉了。于是DTM认为调用服务超时执行整体回滚操作这个时候库存服务会执行补偿动作，从而添加额外的库存。
+3. 悬挂：类似的网络问题导致的业务错乱
+
+子事务屏障的解决思路是：在全局完整事务的基础之上，业务方能否在本地来维护一个本地事务，同时业务方通过一张表来进行记录，当dtm调用本身的时候，通过查询表数据可以知道是否发生了以上三种情况从而避免。
+表结构主要字段：gid、brand_id、op：gid 表示全局事务，一个saga操作许多业务的一串操作就是同一个gid，brand_id就是每一个分支，op：action、compensation。
