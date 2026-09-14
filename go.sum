@@ -400,6 +400,8 @@ github.com/alecthomas/units v0.0.0-20190717042225-c3de453c63f4/go.mod h1:ybxpYRF
 github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d/go.mod h1:rBZYJk541a8SKzHPHnH3zbiI+7dagKZ0cgpgrD7Fyho=
 github.com/alibaba/sentinel-golang v1.0.2 h1:Acopq74hOtZN4MV1v811MQ6QcqPFLDSczTrRXv9zpIg=
 github.com/alibaba/sentinel-golang v1.0.2/go.mod h1:QsB99f/z35D2AiMrAWwgWE85kDTkBUIkcmPrRt+61NI=
+github.com/alibaba/sentinel-golang/pkg/adapters/grpc v0.0.0-20221011112204-0d804bbadda5 h1:YGsrCsTPJW9xI6fsI8t/VodYCt//Zss2PRmqQ3UTE20=
+github.com/alibaba/sentinel-golang/pkg/adapters/grpc v0.0.0-20221011112204-0d804bbadda5/go.mod h1:wOJbMtkzLxlDKDB0LnJKXLfGNqd3/GGBk4x2LNWmjRs=
 github.com/alibaba/sentinel-golang/pkg/datasource/nacos v0.0.0-20221011112204-0d804bbadda5 h1:lJY9l/8lOewQq4q4kwh9zELxPOZ6L7UK1+Q+NVO+xs0=
 github.com/alibaba/sentinel-golang/pkg/datasource/nacos v0.0.0-20221011112204-0d804bbadda5/go.mod h1:irwX1LS4TwFhKwZp7rGgngMSOtMbhCJU8b7Bz8+lJW8=
 github.com/alicebob/gopher-json v0.0.0-20200520072559-a9ecdc9d1d3a/go.mod h1:SGnFV6hVsYE877CKEZ6tDNTjaSXYUk6QqoIK6PrAtcc=

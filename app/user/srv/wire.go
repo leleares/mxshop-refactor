@@ -14,7 +14,7 @@ import (
 	"mxshop/pkg/log"
 )
 
-func initApp(*log.Options, *options.ServerOptions, *options.RegistryOptions, *options.TelemetryOptions, *options.MySQLOptions) (*gapp.App, error) {
+func initApp(*options.NacosOptions, *log.Options, *options.ServerOptions, *options.RegistryOptions, *options.TelemetryOptions, *options.MySQLOptions) (*gapp.App, error) {
 	wire.Build(ProviderSet, controller.ProviderSet, service.ProviderSet, data.ProviderSet, db.ProviderSet)
 	return &gapp.App{}, nil
 }

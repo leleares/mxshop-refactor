@@ -15,7 +15,7 @@ import (
 	"mxshop/gmicro/registry/consul"
 )
 
-var ProviderSet = wire.NewSet(NewUserApp, NewRegistrar, NewUserRPCServer)
+var ProviderSet = wire.NewSet(NewUserApp, NewRegistrar, NewUserRPCServer, NewNacosDataSource)
 
 func NewApp(basename string) *app.App {
 	cfg := config.New()
@@ -56,7 +56,7 @@ func NewUserApp(logOpts *log.Options, register registry.Registrar,
 // run 通过 wire 生成的 initApp 完成依赖注入并启动服务
 func run(cfg *config.Config) app.RunFunc {
 	return func(baseName string) error {
-		userApp, err := initApp(cfg.Log, cfg.Server, cfg.Registry, cfg.Telemetry, cfg.MySQLOptions)
+		userApp, err := initApp(cfg.Nacos, cfg.Log, cfg.Server, cfg.Registry, cfg.Telemetry, cfg.MySQLOptions)
 		if err != nil {
 			return err
 		}

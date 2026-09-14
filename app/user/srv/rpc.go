@@ -11,10 +11,11 @@ import (
 	"github.com/nacos-group/nacos-sdk-go/clients"
 	"github.com/nacos-group/nacos-sdk-go/common/constant"
 
+	"github.com/alibaba/sentinel-golang/pkg/adapters/grpc"
 	"github.com/alibaba/sentinel-golang/pkg/datasource/nacos"
 )
 
-func NewUserRPCServer(telemetry *options.TelemetryOptions, serverOpts *options.ServerOptions, userver upb.UserServer) (*rpcserver.Server, error) {
+func NewUserRPCServer(telemetry *options.TelemetryOptions, serverOpts *options.ServerOptions, userver upb.UserServer, dataNacos *nacos.NacosDataSource) (*rpcserver.Server, error) {
 	//初始化open-telemetry的exporter
 	trace.InitAgent(trace.Options{
 		telemetry.Name,
@@ -28,11 +29,12 @@ func NewUserRPCServer(telemetry *options.TelemetryOptions, serverOpts *options.S
 	var opts []rpcserver.ServerOption
 	opts = append(opts, rpcserver.WithAddress(rpcAddr))
 	if serverOpts.EnableLimit {
-		// 限流(sentinel + nacos)当前未启用，与改造前保持一致。
-		// opts = append(opts, rpcserver.WithUnaryInterceptor(grpc.NewUnaryServerInterceptor()))
-		// if err := dataNacos.Initialize(); err != nil {
-		// 	return nil, err
-		// }
+		// 注册 sentinel 的 unary 拦截器，对每个 RPC 方法做流控
+		opts = append(opts, rpcserver.WithUnaryInterceptor(grpc.NewUnaryServerInterceptor()))
+		// 从 nacos 拉取流控规则并初始化数据源
+		if err := dataNacos.Initialize(); err != nil {
+			return nil, err
+		}
 	}
 	urpcServer := rpcserver.NewServer(opts...)
 
