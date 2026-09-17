@@ -154,5 +154,6 @@ saga 中的子事务屏障：所谓子事务屏障，指的是dtm在实际执行
 2. topic：消息的标识，producer和consumer一般基于topic来进行pub sub
 3. partition：一个topic会有多个partition，可以理解为topic中的分区，partition是队列结构
 4. offset：真正的消息内容是存储于partition队列中的，在队列中的位置就是offset偏移量
-5. 一个consumer可以消费多个partition，但多个consumer不可以消费同一个partition
-6. 假如现在有3个broker(分别为b1、b2、b3)，3个topic中有3个partition（分别为p1、p2、p3），则会产生3个master partition，三个master partition会分布在不同的broker中，这样当向每个partition中写入数据时都会将数据同步到其他的slave Partition，这样以来向每一个不同的Partition中写入数据时写入的都是不同的broker
+5. consumer可以有多个，他们可以进行分组，叫做consumer组
+6. 一个consumer可以消费多个partition，但同一个consumer组中的多个consumer不可以同时消费同一个partition
+7. 假如现在有3个broker(分别为b1、b2、b3)，3个topic中有3个partition（分别为p1、p2、p3），则会产生3个master partition，三个master partition会分布在不同的broker中，这样当向每个partition中写入数据时都会将数据同步到其他的slave Partition，这样以来向每一个不同的Partition中写入数据时写入的都是不同的broker
