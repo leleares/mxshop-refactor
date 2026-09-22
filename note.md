@@ -189,4 +189,16 @@ docker 基础操作：
 运行镜像 `docker run -it --rm ubuntu:18.04 bash` -it 是两个参数，i是interacive的意思指的是进入交互操作，t指的是terminal说明想进入bash终端交互；-rm 说明在容器退出后将容器删除
 列出本地的镜像：`docker image ls`
 删除镜像：`docker image rm id `
+容器相关操作👇：
+可以理解为容器就是一个微型操作系统。
+运行一个新的容器：`docker run imageid` -d参数表示以守护进程方式来运行 -p参数指定端口映射，hostport:containerport，例如 -p 8081:8080意思是宿主机上的8081端口对应着容器的8080端口。服务间调用访问8081端口即可。也可以指定-P命令，大P的意思是随机在宿主机上找一个可用的端口做映射即可。
+运行一个已有的容器：`docker start containerid`
+重启一个已有的容器：`docker restart containerid` 内部会先进行stop随后再进行start
+列出所有容器：`docker ps -a` -a的作用是列出所有的容器，包括已经停止的
+停止：`docker stop containerid`
+移除：`docker rm containerid`
+容器在运行中怎么强制删除：`docker rm -f containerid`
+进入容器：`docker exec -it containerid /bin/bash` 就是会直接进入容器的bash终端
+进入容器查看日志：`docker logs containerid`
+
 ```
