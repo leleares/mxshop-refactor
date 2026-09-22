@@ -200,5 +200,5 @@ docker 基础操作：
 容器在运行中怎么强制删除：`docker rm -f containerid`
 进入容器：`docker exec -it containerid /bin/bash` 就是会直接进入容器的bash终端
 进入容器查看日志：`docker logs containerid`
-
+查看容器端口映射情况：`docker port containerid xx` 查看容器的xx端口映射到主机的哪个端口上了
 ```
