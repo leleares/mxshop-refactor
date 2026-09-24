@@ -189,6 +189,7 @@ docker 基础操作：
 运行镜像 `docker run -it --rm ubuntu:18.04 bash` -it 是两个参数，i是interacive的意思指的是进入交互操作，t指的是terminal说明想进入bash终端交互；-rm 说明在容器退出后将容器删除
 列出本地的镜像：`docker image ls`
 删除镜像：`docker image rm id `
+
 容器相关操作👇：
 可以理解为容器就是一个微型操作系统。
 运行一个新的容器：`docker run imageid` -d参数表示以守护进程方式来运行 -p参数指定端口映射，hostport:containerport，例如 -p 8081:8080意思是宿主机上的8081端口对应着容器的8080端口。服务间调用访问8081端口即可。也可以指定-P命令，大P的意思是随机在宿主机上找一个可用的端口做映射即可。
@@ -201,4 +202,12 @@ docker 基础操作：
 进入容器：`docker exec -it containerid /bin/bash` 就是会直接进入容器的bash终端
 进入容器查看日志：`docker logs containerid`
 查看容器端口映射情况：`docker port containerid xx` 查看容器的xx端口映射到主机的哪个端口上了
+查看容器完整信息：`docker inspect containerid`
+
+docker 挂载数据盘：
+为什么docker容器要挂载外部数据？因为容器一旦被销毁，里面的状态全丢，将容器中的数据挂载到外部盘上不用担心容器销毁后数据丢失问题。
+挂载数据盘 `docker run -v 本地绝对文件路径:容器中绝对文件路径` 可以是文件夹也可以是文件，注意：挂载目录的时候要注意：外部目录会完全覆盖容器中的目录
+`docker run imageid -e param1=1 --name container1` -e是指定环境变量的意思，说白了就是全局参数，容器中可通过$param1获取，--name是给这个容器起名字
+
+
 ```
