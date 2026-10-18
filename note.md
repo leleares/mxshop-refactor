@@ -208,6 +208,246 @@ docker 挂载数据盘：
 为什么docker容器要挂载外部数据？因为容器一旦被销毁，里面的状态全丢，将容器中的数据挂载到外部盘上不用担心容器销毁后数据丢失问题。
 挂载数据盘 `docker run -v 本地绝对文件路径:容器中绝对文件路径` 可以是文件夹也可以是文件，注意：挂载目录的时候要注意：外部目录会完全覆盖容器中的目录
 `docker run imageid -e param1=1 --name container1` -e是指定环境变量的意思，说白了就是全局参数，容器中可通过$param1获取，--name是给这个容器起名字
+```
 
+### 自制镜像 
+k8s中的调度单位是pod，每一个pod里面可以认为是有容器，因此我们的项目必须要做成镜像，才能运行起来当作容器，才可以使用k8s进行管理。
+#### Dockerfile 
+Dockerfile  是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。
+Dockerfile 👇：
+```
+# 基于ngnix镜像构建镜像，向当前容器中的/usr/share/nginx/html/index.html目录中写入内容。
+FROM nginx
+RUN echo '这是一个本地构建的nginx镜像' > /usr/share/nginx/html/index.html
+COPY⁄  home/srv/index.html /mydir/src/index.html
+CMD ["/usr/myserver"]
+EXPOSE 8080
+```
+Dockerfile 就是这个名字也没有后缀，一般放到项目的根目录，Dockerfile写完后如何生成image？
+使用 `docker build` 可以加参数，常见参数如下：
+- -t 指明要构建的镜像的名字
+- -f Dockerfile 在哪个目录，若在当前路径则无需指定
+#### Dockerfile 中的常见命令
+#####  RUN
+RUN 命令后面就相当于在shell终端执行的命令，RUN命令在build阶段运行，即构建镜像的阶段就会运行，与其类似的命令还有一个CMD命令，这个命令在image run的时候会执行
+常见用法：RUN ["可执行文件","参数k","参数值v"] 等价于：./可执行文件 -k v
+
+##### COPY
+将本机文件copy到镜像文件中
+常见用法：COPY home/srv /mydir/src 将本机中home/srv文件拷贝至镜像/mydir/src目录中，常见做法是将go项目build产物可执行文件copy到镜像中，这样镜像就可以将go项目run起来。
+
+##### EXPOSE
+告知docker需要将什么端口暴露出来，例如我的go项目端口号是8888，如果不使用这个命令，docker容器启动时可能开启的并不是8888这个端口而是80端口，因此需要使用EXPOSE命令告知docker我的项目端口是啥。这样他就会将8888端口映射到宿主机上的任意一个可用的端口。
+
+##### ENTRYPOINT 和 CMD
+CMD 命令设置容器启动后默认执行的命令及其参数，当Dockerfile中存在多个CMD命令，只有最后一个会被
+执行，但CMD设置的命令能够被docker run后面的命令行参数覆盖替换
+ENTRYPOINT配置容器启动时的执行命令，当运行 docker run时指定了其他命令，docker run时指定的命令
+会追加到ENTRYPOINT配置命令行的参数一起执行。ENTRYPOINT 中的参数始终会被使用，与CMD不同，它不
+会被替换。
+
+##### ENV 和 ARG
+```
+FROM apline
+ENV project="shop"
+ENV name="rose"
+```
+定义构建镜像中的环境变量或者说常量，这个环境变量会被持久化到容器当中，当然可以在启动容器时修改这个环境变量，docker run -e name="jack"
 
 ```
+FROM apline
+ARG Version 1
+```
+arg参数就相当于变量，在构建镜像时可以由外部传入变量的值，例如docker build --build-args Version=2 这样来修改arg变量的值
+
+##### WORKDIR
+指定工作目录，用 workdir 指定的工作目录，会在构建镜像的每一层中都存在，比如我们想要构建一个基础镜像，以后各层的当前
+目录就被改为workdir的目录 如用目录不存在 workdir会帮你创建目录
+
+# k8s （kubernetes）
+为什么需要k8s。
+容器和服务不是一一对应的，一台服务器上可能运行多个容器，例如现在要对用户服务进行扩容，那么就启动一个用户服务的容器即可，但是放到哪台服务器上？这个不应该由人来手工维护，而应该有一个中间层叫做：容器编排。
+容器编排本身记录了所有服务器上运行的实例，清楚这些服务的负载情况，他就可以将新的容器分配给合适的服务。k8s就是这个编排容器的实现，但k8s能力远强于此。
+例如服务监控，k8s会监控每一个容器，当容器挂掉的时候会再重启一个容器实例。
+k8s 管理多个服务器，例如服务器A、B、C。每个服务器中有若干个 pod（每个pod中含有一个或者多个docker实例），k8s核心能力就是调度这些pod在合适的服务器上运行，每个pod可以理解为是一个服务实例。
+
+### kubesphere
+账号：admin
+密码：Kubesphere123
+k8s是核心的容器编排服务的实现，但其未提供可视化操作界面，kubesphere就是基于k8s服务实现的可视化软件。
+核心概念：
+1. 工作负载（deployment）
+主要工作是编写yml，yml可以理解为是指导k8s的核心文件，包括指定容器启动参数，以及部署。
+部署分为三种类型：
+- 无状态服务：普通后端服务，每一次启动一个实例本质上无差别。
+- 有状态服务：本身有数据，例如sql、redis、nacos、es这些
+- 守护服务：本身无需暴露端口，没人会调用他，例如负责上报日志到阿里云的后台服务
+2. 服务（service）
+k8s中负责服务调度的概念，例如多个容器组可以暴露为同一端口和name，本身也可以完成负载均衡等工作。
+3. 容器组（pod）
+一个pod中可以有一个或者多个container，之所以这么设计，主要是因为很多场景下一个container旁边需要有一个sidecar container，如果k8s的调度单位是container，那么复杂度会升高。
+### RocketMQ 消息链路与关键名词
+
+#### 消息发送和消费链路
+
+假设 A 服务是 Producer，B 服务是 Consumer，双方都在进程中引入 RocketMQ Go SDK，并配置 NameServer 地址。
+
+```text
+A 服务（Producer）
+  1. Go SDK 向 NameServer 查询 Topic `test` 的路由
+  2. NameServer 返回该 Topic 所在的 Broker 和 MessageQueue
+  3. Go SDK 选择一个 MessageQueue，直接把消息发送给 Broker
+  4. Broker 持久化消息，并向 A 返回发送结果
+
+B 服务（Consumer）
+  1. Go SDK 向 NameServer 查询 Topic `test` 的路由
+  2. Go SDK 连接 Broker，通过长轮询拉取消息
+  3. SDK 调用 B 注册的消费函数
+  4. 处理成功则确认消费；处理失败则稍后重试
+```
+
+NameServer 只负责服务发现和路由查询，不转发业务消息。真正的数据链路是：
+
+```text
+A（Producer）──发送消息──> Broker ──拉取消息──> B（Consumer）
+       │                                      │
+       └──── 双方通过 NameServer 查询路由 ────┘
+```
+
+通常 A、B 只需配置 NameServer，查询路由、选择 Broker、建立连接和失败重试均由 Go SDK 完成。
+
+#### 关键名词
+
+- **Producer**：消息生产者，例如 A 服务。
+- **Consumer**：消息消费者，例如 B 服务。
+- **NameServer**：保存 Broker 地址和 Topic 路由；不保存、不转发业务消息。
+- **Broker**：接收、持久化和提供消息的核心服务。
+- **Topic**：消息的逻辑分类，例如 `order-created`；建议由运维提前创建。
+- **MessageQueue**：Topic 内部的队列分片，用于并行收发；同一 Queue 内可保证顺序，不同 Queue 之间不保证全局顺序。
+- **Producer Group**：具有相同发送职责的一组 Producer。
+- **Consumer Group**：具有相同消费逻辑的一组 Consumer。同组多个实例共同分摊消息；不同 Group 各自消费一遍。
+- **Tag**：Topic 内的二级分类，例如 `CREATE`、`CANCEL`。
+- **Key**：消息的业务唯一标识，例如订单号，便于查询和排障。
+- **Offset**：Consumer Group 在 MessageQueue 中的消费位置。
+- **重试消息**：消费失败后由 RocketMQ 再次投递的消息。
+- **死信消息（DLQ）**：超过最大重试次数仍失败的消息，需要人工排查或补偿。
+- **客户端 SDK**：编译进 A、B 服务的 RocketMQ Go 依赖，负责路由查询、网络连接、消息收发、负载均衡和重试，不是独立部署的服务。
+
+#### 重要语义
+
+- A 收到发送成功，只表示 Broker 已接收消息，不表示 B 已处理成功。
+- B 的消费逻辑应保证幂等，避免消息重复投递导致重复扣款、重复减库存等问题。
+- 同一个 Consumer Group 内，一条消息通常只由一个实例处理；不同 Consumer Group 会分别收到消息。
+- RocketMQ 的 PushConsumer 名为“Push”，底层实际通过长轮询从 Broker 拉取消息。
+
+#### 常用端口
+
+- `9876/TCP`：NameServer 路由查询和 Broker 注册。
+- `10911/TCP`：Broker 与 Producer、Consumer 的主要通信端口。
+- `10909/TCP`：Broker VIP Channel 端口，不是 HTTP；关闭 VIP Channel 后可只使用 `10911`。
+- `10912/TCP`：Broker Master/Slave 数据复制端口；当前单 Broker 开发环境无需对业务客户端暴露。
+
+#### Docker Desktop、Docker CLI、Docker Engine、containerd、runc、 CRI
+  ## 一次 docker run 背后发生了什么
+  假设执行：
+  docker run -d --name web -p 8080:80 nginx
+  大致调用链是：
+
+  你
+  │
+  │ docker run / docker ps
+  ▼
+  Docker CLI
+  │
+  │ Docker API（Unix Socket 或网络）
+  ▼
+  Docker Engine / dockerd
+  │
+  ├── 管理镜像、容器、网络、Volume
+  ├── 必要时从镜像仓库拉取镜像
+  └── 调用 containerd
+          │
+          └── 调用低层运行时 runc
+                  │
+                  └── Linux 内核
+                      ├── namespaces：进程、网络等隔离
+                      ├── cgroups：CPU、内存等限制
+                      └── capabilities / seccomp：权限控制
+
+容器虽说是一个独立的环境，但本质上仍是服务器上的一个或者多个进程，对于docker容器来说，其原理就是基于linux os的 namespace、cgroup等底层能力实现进程、网络等隔离；CPU、内存等限制。
+搞清概念：
+所谓docker desktop，其实主要是供windows和mac使用的，windows和mac安装docker desktop后启动这个软件本质上就是启动了一个linux虚拟机，这才是运行docker容器的基石。注意docker desktop是docker的全家桶，内部包含了：Docker CLI、Docker Engine、containerd等。
+
+docker cli 和 docker engine：
+执行：docker pull nginx、docker ps等命令其实就是docker cli，但cli只是命令行工具，本质是交给Docker Engine去做事，因此docker engine是负责：理镜像、容器、网络、Volume、拉取镜像、调用containerd的。
+
+containerd概念，对比docker engine做一些理解：
+  Docker Engine = 面向用户的完整平台
+  containerd = 更底层、更专注的运行时组件
+
+  Docker Engine 在 containerd 之上增加了很多开发者友好的功能：
+
+  • Docker API
+  • docker 命令体验
+  • 容器网络管理
+  • Volume 管理
+  • 镜像构建
+  • Docker Compose
+  • 登录镜像仓库
+  • 端口映射等高级功能
+
+  containerd 更聚焦于：
+
+  • 镜像拉取、存储
+  • 容器创建和生命周期
+  • 容器快照
+  • 调用 runc
+  • 为 Kubernetes 等上层系统提供接口
+
+k8s无需docker engine，因为k8s本身就存在很多对于容器的编排逻辑，k8s定义了CRI（container runtime interface），任何实现了这个接口的都可以被k8s当作容器进行调用，docker的containerd只是其中一种而已只不过比较主流，因此对于k8s管理的容器，无法使用docker ps 等命令查看容器，因此没有docker cli、docker engine这些上层内容，只有底层的containerd，只能通过k8s的 sudo crictl ps、sudo crictl pods、sudo crictl images 命令来查看容器或者pod。
+
+
+#### 工作负载和服务的关系
+首先对于一个服务，完整的部署流程是这样：
+将服务打成镜像 -> 上传到自建镜像仓库（如harbor） -> 在k8s中创建工作负载，并指定此镜像 -> 工作负载状态变为运行中 -> 创建service指定上面的工作负载即可对内网或者公网（nodeport）暴露服务
+
+底层：image -> container -> pod -> service
+工作负载，其实就是管理pod的k8s对象，工作负载运行中即代表创建好了pod，可以对工作负载进行声明式配置指定想要几个pod。
+工作负载虽然可以创建pod，但由于pod可能会被销毁重建，因此外部服务如果依赖pod作为服务的endpoint不可靠，因此加了一层service，service负责维护这些pod，调用service即可。
+
+#### go项目的构建和部署
+演化进程见下：
+1. 最简单粗暴的部署，但性能差，本质就是把go项目复制到镜像中，然后在执行构建镜像时执行go build来构建出go的可执行文件，镜像run起来后项目就跑起来了，这种方式，发现镜像极大（依赖go环境），性能自然也就差。
+```sh
+FROM golang:1.19.4-alpine3.17 # 基于go环境的镜像
+WORKDIR /build
+COPY go.mod .
+copy main.go .
+RUN go build -o hello main.go
+CMD ［"./hello"］
+```
+
+2. 如何对上一步进行瘦身？那就是在宿主机上将go项目build好，然后直接将可执行文件复制到镜像中，那么此镜像就不依赖go的环境，alpine 只是linux上运行镜像必要的文件系统极小。但这样做有个问题就是如果有不同版本的go项目，那么宿主机上go版本的管理就是个问题。
+```sh
+FROM alpine # 必要的镜像环境
+
+COPY hello /hello
+
+CMD ["/hello"]
+```
+
+3. 能否有一种办法，既能隔离go环境，又能使得构建出的镜像不依赖go环境，这就是docker的多阶段构建。第一阶段只负责“加工”，最终发布的镜像不会包含第一阶段的 Go 环境。
+```sh
+FROM golang:1.19.4-alpine3.17 AS builder # 给这个镜像起个alias，方便后面的阶段引用
+WORKDIR /build
+COPY go.mod .
+COPY main.go .
+RUN go build -o hello main.go .
+# 可以认为，从第二个FROM开始已经是第二个阶段了，第二个阶段基于第一个阶段的构建结果来构建
+FROM alpine
+WORKDIR /build
+COPY --from=builder /build/hello .
+CMD ["./hello"］
+```
+
+
