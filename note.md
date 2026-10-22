@@ -449,5 +449,21 @@ WORKDIR /build
 COPY --from=builder /build/hello .
 CMD ["./hello"］
 ```
+### devops、ci、cd、gitops
+#### devops（dev:development； ops:operations）
+比较宏观的理论，典型的代表就是jenkins。
 
+#### ci（continous integration）
+对于go项目，一般的流程就是: 代码上传 -> （代码检测、扫描等，一般公司没这个环节）-> go build -> build image -> image push
+
+使用 jenkins 构建镜像
+1. 从 gitlab 拉取代码 -> 构建打包 -> build image -> push 到镜像仓库
+   注意打镜像时要加上版本号 
+
+jenkins 通过插件拉取到分支代码后，会读取项目中Jenkins文件，这个文件就是指导jenkins工作的核心文件，Jenkins文件在项目中被维护，可以用来指导如何进行打包部署，这就是gitops思想（使用git来管理配置文件，配置文件指导一系列cicd过程）。
+项目中应写Dockerfile用于指导如何进行将本项目打包成镜像（对于go项目就是采用多阶段构建将可执行文件打包到镜像当中）
+写Jenkinsfile，本质上是写pipeline脚本，分为多阶段，例如阶段一：执行sh登录到镜像仓库harbor 阶段二：打包构建镜像 阶段三：推送镜像到harbor
+
+#### cd （continuous deployment）
+流程：拉取image -> 使用k8s进行部署
 
