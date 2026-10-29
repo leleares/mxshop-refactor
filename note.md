@@ -415,6 +415,19 @@ k8s无需docker engine，因为k8s本身就存在很多对于容器的编排逻�
 工作负载，其实就是管理pod的k8s对象，工作负载运行中即代表创建好了pod，可以对工作负载进行声明式配置指定想要几个pod。
 工作负载虽然可以创建pod，但由于pod可能会被销毁重建，因此外部服务如果依赖pod作为服务的endpoint不可靠，因此加了一层service，service负责维护这些pod，调用service即可。
 
+#### ingress
+属于k8s中的概念，相当于网关或者nginx服务器的角色，外部不可能直接访问service的ip地址，例如现在有user service、good service，就可以设置一层ingress，ingress的域名设置为mxshop.com，外部直接访问mxshop.com即可，根据路由前缀匹配具体的服务，例如mxshop.com/user则打到user service上，如mxshop.com/good则打到good service上
+
+### k8s中的持久卷
+pod随时可以被销毁，数据如果存储在pod中，那么数据也会被销毁，因此pod中的数据通常都会挂载到外部的持久卷上，这样pod重启时，由于数据在持久卷上，状态不会丢失。
+持久卷主要可以分为两种类型：本地磁盘和网盘，本地磁盘很容易理解，就是从所在机器上分配的存储空间中申领的。网盘就是存储到网络磁盘上的。
+PV和PVC：PV（persist volume）、PVC（persist volume claim）
+PV指的是静态的磁盘大小。PVC指的是申请多少磁盘，是一个动词的概念。
+
+### k8s中的配置
+配置文件，本质上就是在k8s中创建配置文件然后挂载到pod中所依赖的配置文件路径中。
+配置文件分为一般配置文件和保密配置文件。
+
 #### go项目的构建和部署
 演化进程见下：
 1. 最简单粗暴的部署，但性能差，本质就是把go项目复制到镜像中，然后在执行构建镜像时执行go build来构建出go的可执行文件，镜像run起来后项目就跑起来了，这种方式，发现镜像极大（依赖go环境），性能自然也就差。
@@ -463,6 +476,7 @@ CMD ["./hello"］
 jenkins 通过插件拉取到分支代码后，会读取项目中Jenkins文件，这个文件就是指导jenkins工作的核心文件，Jenkins文件在项目中被维护，可以用来指导如何进行打包部署，这就是gitops思想（使用git来管理配置文件，配置文件指导一系列cicd过程）。
 项目中应写Dockerfile用于指导如何进行将本项目打包成镜像（对于go项目就是采用多阶段构建将可执行文件打包到镜像当中）
 写Jenkinsfile，本质上是写pipeline脚本，分为多阶段，例如阶段一：执行sh登录到镜像仓库harbor 阶段二：打包构建镜像 阶段三：推送镜像到harbor
+部署：然后去k8s上操作，修改工作负载指定的镜像地址，修改完成后，pod会逐步替换为新的容器内容，这时候就重新部署成功了。
 
 #### cd （continuous deployment）
 流程：拉取image -> 使用k8s进行部署
